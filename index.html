@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Pratama</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Navbar */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(8px);
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:700;
+    color:#00c6ff;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+    font-size:14px;
+}
+
+nav ul li a:hover{
+    color:#00c6ff;
+}
+
+/* Hero */
+.hero{
+    padding:180px 10% 100px;
+    min-height:100vh;
+}
+
+.hero-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:50px;
+}
+
+.hero-text h1{
+    font-size:50px;
+}
+
+.hero-text h2{
+    font-size:28px;
+    margin-top:10px;
+}
+
+.blue{
+    color:#00c6ff;
+}
+
+.hero-text p{
+    margin-top:20px;
+    line-height:1.8;
+    color:#e0e0e0;
+    max-width:600px;
+}
+
+/* Foto Profil */
+.hero-image img{
+    width:320px;
+    height:320px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid #00c6ff;
+    box-shadow:0 0 30px #00c6ff;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+
+/* Button */
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 30px;
+    border:2px solid #00c6ff;
+    border-radius:30px;
+    color:#00c6ff;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#00c6ff;
+    color:black;
+    box-shadow:0 0 15px #00c6ff;
+}
+
+/* Skills Section */
+.skills{
+    padding:80px 10%;
+    background:rgba(0,0,0,0.4);
+}
+
+.skills h2{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.skill{
+    margin-bottom:20px;
+}
+
+.skill-name{
+    margin-bottom:5px;
+}
+
+.skill-bar{
+    width:100%;
+    background:#333;
+    border-radius:20px;
+}
+
+.skill-fill{
+    height:10px;
+    border-radius:20px;
+    background:#00c6ff;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:30px;
+    background:rgba(0,0,0,0.5);
+    color:#ccc;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .hero-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-image img{
+        width:200px;
+        height:200px;
+    }
+
+    nav ul{
+        display:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Raffa Rahardi P.</div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-container">
+
+        <div class="hero-text">
+            <h1>
+                <span id="text1"></span><span class="blue" id="name"></span>
+            </h1>
+            <h2>
+                <span id="text2"></span><span class="blue" id="job"></span>
+            </h2>
+
+            <p id="desc"></p>
+
+            <a href="https://wa.me/6287879965486" 
+               target="_blank" 
+               class="btn">Contact Me</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="tama.jpg" alt="Foto Pratama">
+        </div>
+
+    </div>
+</section>
+
+<section class="skills" id="skills">
+    <h2>My Skills</h2>
+
+    <div class="skill">
+        <div class="skill-name">HTML</div>
+        <div class="skill-bar">
+            <div class="skill-fill" style="width:90%"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <div class="skill-name">CSS</div>
+        <div class="skill-bar">
+            <div class="skill-fill" style="width:80%"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-bar">
+            <div class="skill-fill" style="width:70%"></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Pratama | All Rights Reserved
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+function typeText(element, text, speed, callback){
+    let i = 0;
+    function typing(){
+        if(i < text.length){
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, speed);
+        } else if(callback){
+            callback();
+        }
+    }
+    typing();
+}
+
+const descText = "Perkenalkan, nama saya Pratama. Hobi saya coding, gaming dan bermain alat musik. Saya adalah pelajar SMK YAPPENDA. saya memiliki minat di bidang Web Development. Saya suka belajar hal baru dan membuat project yang bermanfaat.";
+
+typeText(document.getElementById("text1"), "Hello, I'm ", 50, function(){
+    typeText(document.getElementById("name"), "Pratama", 100, function(){
+        typeText(document.getElementById("text2"), "I'm a ", 50, function(){
+            typeText(document.getElementById("job"), "Web Developer", 80, function(){
+                typeText(document.getElementById("desc"), descText, 20);
+            });
+        });
+    });
+});
+
+});
+</script>
+
+</body>
+</html>
